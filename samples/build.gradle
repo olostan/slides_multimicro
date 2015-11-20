@@ -1,0 +1,19 @@
+protobuf {
+  repositories {
+    mavenCentral()
+  }
+
+  protoc {
+    artifact = 'com.google.protobuf:protoc:3.0.0-beta-1'
+  }
+  plugins {
+    grpc {
+      artifact = 'io.grpc:protoc-gen-grpc-java:0.9.0'
+    }
+  }
+  generateProtoTasks {
+    all()*.plugins {
+      grpc {}
+    }
+  }
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "name.olostan.dispatcher";
+
+package dispatcher;
+
+service Dispatcher {
+  rpc Dispatch (DispatchRequest) returns (DispatchReply) {}
+}
+
+message DispatchRequest {
+  bytes image = 1;
+}
+
+message DispatchReply {
+  bytes image = 1;
+}

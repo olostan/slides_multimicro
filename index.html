@@ -1,0 +1,171 @@
+<!DOCTYPE html><!--
+  Copyright (c) 2015, Valentyn Shybanov. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+--><html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Multi-services in Google Cloud</title>
+    <link rel="stylesheet" href="packages/dacsslide/presentation.css">
+    <link rel="stylesheet" href="packages/dacsslide/comment.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="styles.css">
+    <script async="" src="main.dart.js"></script>
+    
+    <script src="lib/d3.v3.min.js"></script>
+    <script async="" src="connected_bg.js"></script>
+
+</head>
+
+<body presentation-classes="">
+<presentation slides="80" class="hidden">
+    <symbol id="title">Multilingual Microservices</symbol>
+    <symbol id="title_gcp"><img src="assets/google-cloud-platform.png"></symbol>
+    <symbol id="val"><img src="assets/Valentyn_gde_long.jpg"> </symbol>
+    <symbol id="val_qr"><img src="assets/olo_qr.svg"> </symbol>
+    <symbol id="val_qr2"><img src="assets/multimicro_qr.svg"> </symbol>
+    <symbol id="what_micro">What is <b>Microservice?</b></symbol>
+    <symbol id="m_1"><b>Componentized</b> - Microservices should be very small with a single responsibility and be out of process. This is very different from a typical library where components are assembled in process.</symbol>
+    <symbol id="m_2"><b>Message Driven</b> - Microservices should be driven by asynchronous messaging where the intelligence is left up to the microservice implementation and not provided by the messaging fabric</symbol>
+    <symbol id="m_3"><b>Decentralized Data</b> - Each service should manage its own data. You can think of this model as the OO concept of data encapsulation. No service can access the database of another service.</symbol>
+    <symbol id="m_head"><img src="assets/HeadCircumference.jpg"></symbol>
+    <symbol id="m_d">software that fits in your head.</symbol>
+    <symbol id="d_n">Dan North, @tastapod</symbol>
+    <symbol id="head_circle"></symbol>
+    <symbol id="can_we">Can we do everything with <b>one</b> tool?</symbol>
+    <symbol id="swiss"><img src="assets/swiss-army-knife-1.png"></symbol>
+    <symbol id="really">O'REALLY?</symbol>
+    <symbol id="nail"><img src="assets/nail.png"></symbol>
+    <symbol id="hammer"><img src="assets/hammer.png"></symbol>
+    <symbol id="right_tool">Use <b>right</b> tool!</symbol>
+    <symbol id="slogan">Be <b>together</b>, not the <b>same</b>!</symbol>
+    <symbol id="slogan_d"><i>Could be applied also to micros-ervices.</i></symbol>
+    <symbol id="hammer_circle"></symbol>
+    <symbol id="rt_1">Server-Web Client communication (JavaScript)?</symbol>
+    <symbol id="rt_1_t">NodeJS</symbol>
+    <symbol id="rt_2">Writing buisness logic (complex structures,relations)?</symbol>
+    <symbol id="rt_2_t">Java / C# / Dart</symbol>
+    <symbol id="rt_3">Parallel computations, data manipulation?</symbol>
+    <symbol id="rt_3_t">C++ / Go</symbol>
+    <symbol id="rt_4">...you tell me!</symbol>
+    <symbol id="rt_4_t">Erlang, Scala, Python</symbol>
+    <symbol id="own_env">Each Language/Platform has own</symbol>
+    <symbol id="sdk">SDK</symbol>
+    <symbol id="pkg">Packages</symbol>
+    <symbol id="bld">Builder</symbol>
+    <symbol id="cont"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont2"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont3"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont4"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont5"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont6"><img src="assets/container_sm.png"></symbol>
+    <symbol id="cont_t">Containers!</symbol>
+    <symbol id="smile1"><img src="assets/nicubunu-Emoticons-Cool-face_sm.png"></symbol>
+    <symbol id="smile2"><img src="assets/polls_face_plain_3430_68862_answer_4_xlarge.png"></symbol>
+    <symbol id="smile3"><img src="assets/confused-smiley-face-clip-art-161492.png"></symbol>
+    <symbol id="smile4"><img src="assets/6cr5AdnLi.gif"></symbol>
+    <symbol id="cont_circle"></symbol>
+    <symbol id="cont_ship"><img src="assets/container_ship.jpg"></symbol>
+    <symbol id="cont_c">Container</symbol>
+    <symbol id="cont_ms">Management System</symbol>
+
+    <symbol id="swa_bg"></symbol>
+    <symbol id="swa_i"><img src="assets/SWARM_sm.png"></symbol>
+    <symbol id="swa_t">Swarm</symbol>
+    <symbol id="swa_d">is a Docker.. Simple to use, hard for complex scheduling</symbol>
+
+    <symbol id="flee_bg"></symbol>
+    <symbol id="flee_i"><img src="assets/coreos-wordmark-vert-color.png"></symbol>
+    <symbol id="flee_t">Fleet</symbol>
+    <symbol id="flee_d">Low-level and simple orchestration tooling</symbol>
+
+    <symbol id="mesos_bg"></symbol>
+    <symbol id="mesos_i"><img src="assets/Mesos.png"></symbol>
+    <symbol id="mesos_d">Low-level, battle-hardened scheduler</symbol>
+
+    <symbol id="kube_bg"></symbol>
+    <symbol id="kube_i"><img src="assets/Bt_pEfqCAAAiVyz.png"></symbol>
+    <symbol id="kube_t">Kubernetes</symbol>
+    <symbol id="kube_d">Opinionated orchestration tool that comes with service discovery and replication baked-in</symbol>
+
+    <symbol id="g_dc"><img src="assets/google_datacenters.jpg"></symbol>
+    <symbol id="g_op">Opiniated by <b>Google</b></symbol>
+    <symbol id="g_dc14"><b>14</b> Data Centers</symbol>
+    <symbol id="g_servers">How many servers there are?</symbol>
+    <symbol id="g_servers2">1837440</symbol>
+    <symbol id="spanner"><img src="assets/google-spanner.gif"></symbol>
+    <symbol id="spanner_t">Google Spanner</symbol>
+    <symbol id="spanner_d">~10^6 to 10^7 machines, ~10^13 directories,
+        ~10^18 bytes of storage, spread at 100s to 1000s of
+        locations around the world, ~10^9 client machines</symbol>
+    <symbol id="code_circle"></symbol>
+    <symbol id="lets">Let's <b>Build</b>!</symbol>
+    <symbol id="a_gcp"><img src="assets/google-cloud-platform.png"></symbol>
+    <symbol id="a_kube"><img src="assets/Bt_pEfqCAAAiVyz.png"> Kubernetes</symbol>
+    <symbol id="a_node"><img src="assets/Node.js_logo.svg.png"></symbol>
+    <symbol id="a_node_t">Serve HTML templates, accept user requests <b>[frontend]</b></symbol>
+    <symbol id="a_java"><img src="assets/l12866-java-eps-logo-99090.png"></symbol>
+    <symbol id="a_java_t">Get request form <i>front-end</i> and pass to <i>renderer</i> <b>[dispatcher]</b> </symbol>
+    <symbol id="a_go"><img src="assets/golang.sh-600x600.png"></symbol>
+    <symbol id="a_go_t">Render actual picture requested <b> [renderer]</b> </symbol>
+    <symbol id="a_grpc"><img src="assets/grpc.svg"></symbol>
+    <symbol id="s_contr" track="" sample="samples/dispatcher.proto"></symbol>
+    <symbol id="s_frontend" track="" sample="samples/frontend.js"></symbol>
+    <symbol id="s_build" track="" sample="samples/build.gradle" type="javascript"></symbol>
+
+
+
+    <!--
+    Think about service and find the best tool
+         Communicating with Web Frontend? Node.JS
+         Do some data-manipulation that can run in parallel? Go
+         Writing business logic in structural way? Java/C# or Dart
+         Erlang, Ruby, ... you tell me!
+    Ok, but each language require own environment
+        SDK, packages, build... what to do?
+        Containers!
+    Ok, we have containers...
+        1 - fun, 2 - interesting, 5 - ugh... 10 - I quit!
+        Solution: Container Management System
+            Swarm (Docker), Fleet (CoreOS), Kubernetes (Google) and Mesos (Apache)
+                Swarm - is a Docker.. Simple to use, hard for complex scheduling
+                Fleet -  low-level and simple orchestration tooling
+                Kubernetes -  opinionated orchestration tool that comes with service discovery and replication baked-in.
+                Mesos - low-level, battle-hardened scheduler
+    Some words about Google
+        14 Data centers, how many servers?
+            I don't work in Google, but I can Google about Google
+            Let's guess
+                http://www.artificialbrains.com/google/datacenters - 1837440 in total
+                https://plus.google.com/+JamesPearn/posts/VaQu9sNxJuY -
+            2009 by Google Fellow +Jeff Dean mentioned "Spanner" -
+                ~10^6 to 10^7 machines, ~10^13 directories,
+                ~10^18 bytes of storage, spread at 100s to 1000s of
+                locations around the world, ~10^9 client machines
+     So let's make something:
+        NodeJS will serve HTML template and handle user requests
+        Image update will pass to Java
+        Java service will contact Go services that will do render
+        All communication will be using gRPC
+    gRPC
+        A high performance, open source, general RPC framework that puts mobile and HTTP/2 first
+        Ideal for communication between microservices
+         C, C++, Java, Go, Node.js, Python, Ruby, Objective-C, PHP and C#.
+    And all these microservices should run in cluster
+
+    First define contracts
+        dispatcher
+        renderer
+    NodeJS code
+    Java code
+    Go code
+    Demo
+
+References:
+    Adrian Mouat, http://radar.oreilly.com/2015/10/swarm-v-fleet-v-kubernetes-v-mesos.html
+
+-->
+</presentation>
+
+
+</body></html>
