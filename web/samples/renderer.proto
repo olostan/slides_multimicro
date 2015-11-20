@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "name.olostan.renderer";
+package renderer;
+
+service Renderer {
+	rpc Render(RenderRequest) returns (RenderResponse) {}
+}
+
+message RenderRequest {
+	bytes texture = 1;
+}
+message RenderResponse {
+	bytes image = 2;
+}

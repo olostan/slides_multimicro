@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(90deg, #485563 10%, #19222c 90%);
+}
+.link {
+    stroke: #AAA;
+    stroke-width: 2px;
+}
+.node {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+#svg {
+    transition: all 1s;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100%;
+    padding:0;
+    margin:0;
+    background-color: white;
+    perspective: 900px;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    color: white;
+}
+.hidden { opacity:0; }
+controls {
+    font-size: 12px;opacity:0.3;
+}
+controls:hover{ opacity:1;}
+symbol {
+    font-size: 120px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity:0;
+}
+symbol b {
+    color: yellow;
+}
+comment {
+    background-color: #222;
+}
+
+#a_node:after,#a_java:after,#a_go:after {
+    z-index: -1;
+    content:'';
+    display:inline-block;
+    width: 187px;
+    height: 20px;
+    position: absolute;
+    margin-left:20px;
+    border-bottom: solid 4px white;
+}
+#a_java:after,#a_go:after {
+    margin-top:40px;
+    width: 200px;
+}
+#a_grpc:after,#a_grpc:before {
+    z-index: -1;
+    content:'';
+    display:inline-block;
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    margin-left:20px;
+    margin-top:-3px;
+    border-bottom: solid 4px white;
+}
+#a_grpc:before {
+    width: 60px;
+    margin-left:-80px;
+}
+
+pre.prettyprint {
+    font-size:26px;
+    padding:10px;
+    box-sizing:padding-box;
+    border: solid 1px white !important;
+}

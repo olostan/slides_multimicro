@@ -1,0 +1,22 @@
+name: 'slides_multimicro'
+version: 0.0.1
+description: Slides for Multi-language Multi-service
+author: Valentyn Shybanov <olostan@gmail.com>
+homepage: https://github.com/olostan/slides_multimicro
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  browser: '>=0.10.0 <0.11.0'
+  dart_to_js_script_rewriter: '^0.1.0'
+  dacsslide: 'any'
+  csslib_transform: '>=0.0.1 <0.2.0'
+  pretty_samples: 'any'
+  angular: '>=1.0.0 <1.5.0'
+
+transformers:
+- angular
+- dacsslide
+- csslib_transform
+- dart_to_js_script_rewriter
