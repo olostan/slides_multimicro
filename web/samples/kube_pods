@@ -1,0 +1,9 @@
+ᐅ kubectl get pods
+NAME               READY     STATUS    RESTARTS   AGE
+dispatcher-rdtw3   1/1       Running   0          1d
+frontend-7o34j     1/1       Running   0          1d
+frontend-vgze2     1/1       Running   0          1d
+renderer-4nldn     1/1       Running   0          1d
+renderer-f5162     1/1       Running   0          1d
+renderer-ivcod     1/1       Running   0          1d
+renderer-rc0yd     1/1       Running   0          1d

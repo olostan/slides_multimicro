@@ -23,6 +23,7 @@ body.s2 #svg {
 #val: scale(0.6,0.6) down(250);
 #val_qr: left(500) down(0);
 #val_qr2: right(500) down(0);
+#val_qr2 img { width: 200px;}
 .s3 {
     #title_gcp:down(500) hide;
     #val: up(200) show delay(0.4);
@@ -553,3 +554,69 @@ body.s2 #svg {
     #s_rend2 { transform-origin: 50% 0%; ::hide rotate(-90) delay(0); }
     #test: up(500) show;
 }
+#dockerize: right(500);
+.s44 {
+    #test:left(500) delay(0.2) hide;
+    #dockerize:left(500) show;
+}
+#fe_docker: rotate(0,90) up(300);
+#disp_docker: rotate(0,90) up(100);
+#re_docker: rotate(0,90) down(200);
+.s45 {
+    #dockerize: rotate(0,-90) hide;
+    #fe_docker: rotate(0,-90) show delay(0.3);
+    #disp_docker: rotate(0,-90) show delay(0.6);
+    #re_docker: rotate(0,-90) show delay(0.9);
+}
+#deploy: down(300);
+.s46 {
+    #fe_docker { transform-origin: 50% 0%; ::hide rotate(-90) delay(0.6); }
+    #disp_docker { transform-origin: 50% 0%; ::hide rotate(-90) up(150)  delay(0.3); }
+    #re_docker { transform-origin: 50% 0%; ::hide rotate(-90) up(300) delay(0); }
+    #deploy:show up(300) delay(0.8);
+}
+#fe_controller { transform-origin: 50% 100%;::rotate(90);}
+.s47 {
+    #deploy: hide up(300) delay(0);
+    #fe_controller: show rotate(-90) delay(0.3);
+
+}
+#fe_service { transform-origin: 50% 100%;::rotate(90);}
+.s48 {
+    #fe_controller { transform-origin: 50% 0%; ::hide rotate(-90) delay(0); }
+    #fe_service: show rotate(-90) delay(0.3);
+}
+#kube_create { transform-origin: 50% 100%;::rotate(90);}
+.s49 {
+    #fe_service { transform-origin: 50% 0%; ::hide rotate(-90) delay(0); }
+    #kube_create: show rotate(-90) delay(0.3);
+}
+#kube_pods { transform-origin: 50% 100%;::rotate(90);}
+.s50 {
+    #kube_create { transform-origin: 50% 0%; ::hide rotate(-90) delay(0); }
+    #kube_pods: show rotate(-90) delay(0.3);
+}
+.s51 {
+    #kube_pods { transform-origin: 50% 0%; ::hide rotate(-90) delay(0); }
+    #demo: show;
+}
+
+#last_bg { background-color: rgba(255,255,255,0.7);width:800px;height: 500px;::right(500);}
+#last_tw: right(400) scale(0.7,0.7) up(140);
+#last_l1{ ::right(400) up(50);font-size: 40px;color: #000066;font-family:monospace;}
+#last_l2{ ::right(400) up(0);font-size: 40px;color: #000066;font-family:monospace;}
+#last_l3{ ::right(400) down(50);font-size: 40px;color: #000066;font-family:monospace;}
+#last_kudos{ ::down(470);font-size: 20px;color:black; width:700px;text-align: justify;}
+#last_val: up(50) delay(0.4) scale(0.4,0.4);
+.s52 {
+    #demo: hide;
+    #last_bg: show left(500) delay(0.2);
+    #m_bg img { -webkit-filter: none;}
+    #last_val: show left(250)  delay(0.3);
+    #last_tw: show left(300) delay(0.8);
+    #last_l1: show left(300) delay(1.2);
+    #last_l2: show left(300) delay(1.4);
+    #last_l3: show left(280) delay(1.6);
+    #last_kudos: show up(300) delay(1.8);
+}
+
