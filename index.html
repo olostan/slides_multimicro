@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Language Multi-services in Google Cloud</title>
+    <title>Multilingual Multi-services in Google Cloud</title>
     <link rel="stylesheet" href="packages/dacsslide/presentation.css">
     <link rel="stylesheet" href="packages/dacsslide/comment.css">
     <link rel="stylesheet" href="common.css">
@@ -140,6 +140,59 @@
         contribute in understanding and implementing micro-services. Special thanks to Google for their great products.</symbol>
 
 
+    <comment slide="1">Using different programming languages in microservice architecture</comment>
+    <comment slide="2">and deployed on Google Cloud Platform</comment>
+    <comment slide="3">My name is Valentyn Shybanov, <a href="http://olostan.name">olostan.name</a>. I am
+    Software Architect in Twinfield.</comment>
+    <comment slide="4">Let me mention some main properties of microservices:</comment>
+    <comment slide="8">One of the most discussed question is how big microserive should be. 100 LoC? 1000? My most
+    favourite answer is Den North's definiting: Software that fits in your head </comment>
+    <comment slide="9">But can we do everything with using same tool?</comment>
+    <comment slide="10">May be we can have universal "swiss knife"
+        that we can use to develop all our multiservices?</comment>
+    <comment slide="11">Try to hit nail with swiff knife</comment>
+    <comment slide="12">Especially when there is tools designed for that</comment>
+    <comment slide="14">There is a slogan from Android that can be applied to microservices</comment>
+    <comment slide="15">Here are samples of tools that can suite much better for solving specified problems</comment>
+    <comment slide="16">But each of platform bring own problems</comment>
+    <comment slide="17">Each of them have own SDK, Package System, Builders, Compilers, Linting, etc</comment>
+    <comment slide="18">Good solution for these problems is to use containers.</comment>
+    <comment slide="19">Tehy looks like a great solution for the first view - inside is wrapped all
+    complexity, all dependent components, it is easy to run on any system with just "docker run".</comment>
+    <comment slide="20">But when there are 2 containers, you need to think how to manage them. Deploy in the
+    way that will not ruin your system.</comment>
+    <comment slide="21">When there are more you need to think about possible dependencies between them</comment>
+    <comment slide="22">And it becomes horrow when new and new containers appears</comment>
+    <comment slide="23">Solution for that can to to use container management system that will take over
+    deployement, assembling containers to the system. There are couple of them:</comment>
+    <comment slide="24">Swarm is really Docker-oriented. For complex solutions you need to implement own way
+    of managing these containers.</comment>
+    <comment slide="25">CoreOs' Fleet give a very fine control over cluster where containers could be run, but
+    it is quite simple and primitive. Again for complex scenarios you need to implement own extra layer of management</comment>
+    <comment slide="26">Mesos is the olderst, and it is not exactly container oriented. It is good for managing cluster,
+    but not well suited for managing container-based solutions</comment>
+    <comment slide="27">Kubernetes from Google has own concepts (Pods, Replication Controllers) that are
+    quite opiniated, but gives fool control over the cluster and containers. It handles name resolution, container dependecy resolving etc</comment>
+    <comment slide="28">Ti is opiniated by Google. Can we trust Google that their solution is good enough?</comment>
+    <comment slide="29">Google has 14 datacenters whole over the world. how many servers they operate?</comment>
+    <comment slide="30">There is no public information, but we can estimate at least approximately (using Google Maps and
+    calculate number of servers that could be fir inside area occupied by Data Centers</comment>
+    <comment slide="31">Another approximation could be done from Jeff Dean's preseentation about Google Spanner that
+    is designed to operate on 10^6 to 10^7 servers</comment>
+    <comment slide="32">Let's build sample application using multiple languages</comment>
+    <comment slide="33">We'll use NodeJS for frontend because it use same platform as client (JS), Java
+    for buisness logic and Go for manipulation with data. gRPC for communicate between them.</comment>
+    <comment slide="34">We'll use Kubernetes to orchestrate these containers</comment>
+    <comment slide="35">And we'll deploy to the cluster running on Google Cloud Platform</comment>
+    <comment slide="36">First we need to define contract using Protobuf definition. The most important
+    part here - "service" part where we define what is exposed by our server</comment>
+    <comment slide="37">For Java we can use grpc grandle plugin that will generate Java interfaces that needed
+    to be implemented and classes that can be used for exposing services using Netty server</comment>
+    <comment slide="38">Just implemented generated interfaces you can expose service. You can use generated
+    classes to form response and send it back</comment>
+    <comment slide="39">As for Go service we should define same contract (protobuf definition does not depend
+    to language that is going to implement it or usee it as client).</comment>
+    <comment slide="40"></comment>
 
     <!--
     Think about service and find the best tool
