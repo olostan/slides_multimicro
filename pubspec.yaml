@@ -11,8 +11,10 @@ dependencies:
   browser: '>=0.10.0 <0.11.0'
   dart_to_js_script_rewriter: '^0.1.0'
   dacsslide: 'any'
+  dacsslide_remote: 'any'
   csslib_transform: '>=0.0.1 <0.2.0'
   pretty_samples: 'any'
+  dacsslide_remote: 'any'
   angular: '>=1.0.0 <1.5.0'
 
 transformers:

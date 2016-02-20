@@ -203,7 +203,7 @@ function drawGraph() {
     var c = 0;
 
     function nextAction() {
-        console.log("action!");
+        //console.log("action!");
         if (graph.nodes.length > 200 || (c > 10 && Math.random() > 0.7)) {
             if (Math.random() > 0.5)
                 graph.RemoveRandomNode();
@@ -223,7 +223,7 @@ function drawGraph() {
         c++;
         keepNodesOnTop();
     }
-    var int = setInterval(nextAction, 1000)
+    var int = setInterval(nextAction, 1500)
     for (var i = 0; i < 0; i++) nextAction()
     return function() {
         clearInterval(int);
